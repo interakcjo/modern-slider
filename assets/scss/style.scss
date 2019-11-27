@@ -1,0 +1,174 @@
+$primaryColor: #f39422;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Play", sans-serif;
+  background-color: #010038;
+  color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+a {
+  color: $primaryColor;
+}
+
+.slider {
+  position: relative;
+  min-height: 100vh;
+  &-inner {
+    position: relative;
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      visibility: hidden;
+      width: 100%;
+      &--active {
+        opacity: 1;
+        visibility: visible;
+      }
+      &__image-wrapper {
+        width: 0;
+        height: 100vh;
+        max-height: 100%;
+        transition: width 0.5s ease-in-out;
+        overflow: hidden;
+      }
+      &__image {
+        width: auto;
+        max-height: 100%;
+        min-height: 100%;
+        min-width: 100%;
+        object-fit: cover;
+      }
+      &__title {
+        font-size: 200px;
+        position: absolute;
+        top: 15%;
+        left: 45%;
+        margin: 0;
+        line-height: 0.8;
+        text-shadow: -10px -10px 0 rgba(white, 0.15);
+        &::before {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          content: attr(title);
+          font-size: 48px;
+          width: 100px;
+          height: 100px;
+          border-radius: 100%;
+          background-color: $primaryColor;
+          color: white;
+          box-shadow: -10px -10px 60px rgba($primaryColor, 0.8);
+          position: absolute;
+          top: -60px;
+          left: -100px;
+        }
+        span {
+          display: block;
+          font-size: 144px;
+          color: white;
+          margin-left: -50px;
+        }
+      }
+      &__excerpt {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 45%;
+        font-size: 24px;
+        line-height: 1.615;
+      }
+      &__button {
+        display: inline-block;
+        text-align: center;
+        padding: 20px 60px;
+        text-transform: uppercase;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        text-decoration: none;
+        border: 10px solid white;
+        position: absolute;
+        top: 70%;
+        left: 45%;
+        transition: color 0.2s linear, border 0.2s linear;
+        &:hover {
+          color: $primaryColor;
+          border-color: $primaryColor;
+        }
+      }
+    }
+  }
+  &__navigation {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  &__arrow {
+    display: inline-block;
+    background-color: transparent;
+    border: 5px solid white;
+    padding: 20px 40px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    &--disabled {
+      opacity: 0.5;
+    }
+  }
+}
+.slider {
+  .slider-inner {
+    .slide--active {
+      .slide__image-wrapper {
+        animation: showImage 0.5s ease-in-out both;
+      }
+      .slide__title {
+        animation: slideIn 0.3s ease-in-out both;
+        span {
+          animation: slideIn 0.3s ease-in-out both;
+          animation-delay: 0.3s;
+        }
+      }
+      .slide__excerpt {
+        animation: slideIn 0.4s ease-in-out both;
+        animation-delay: 0.4s;
+      }
+      .slide__button {
+        animation: slideIn 0.5s ease-in-out both;
+      }
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes showImage {
+  to {
+    width: 500px;
+  }
+}

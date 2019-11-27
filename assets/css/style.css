@@ -1,0 +1,225 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Play", sans-serif;
+  background-color: #010038;
+  color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+a {
+  color: #f39422;
+}
+
+.slider {
+  position: relative;
+  min-height: 100vh;
+}
+
+.slider-inner {
+  position: relative;
+}
+
+.slider-inner .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+}
+
+.slider-inner .slide--active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slider-inner .slide__image-wrapper {
+  width: 0;
+  height: 100vh;
+  max-height: 100%;
+  -webkit-transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out;
+  overflow: hidden;
+}
+
+.slider-inner .slide__image {
+  width: auto;
+  max-height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.slider-inner .slide__title {
+  font-size: 200px;
+  position: absolute;
+  top: 15%;
+  left: 45%;
+  margin: 0;
+  line-height: 0.8;
+  text-shadow: -10px -10px 0 rgba(255, 255, 255, 0.15);
+}
+
+.slider-inner .slide__title::before {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  content: attr(title);
+  font-size: 48px;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-color: #f39422;
+  color: white;
+  -webkit-box-shadow: -10px -10px 60px rgba(243, 148, 34, 0.8);
+          box-shadow: -10px -10px 60px rgba(243, 148, 34, 0.8);
+  position: absolute;
+  top: -60px;
+  left: -100px;
+}
+
+.slider-inner .slide__title span {
+  display: block;
+  font-size: 144px;
+  color: white;
+  margin-left: -50px;
+}
+
+.slider-inner .slide__excerpt {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  font-size: 24px;
+  line-height: 1.615;
+}
+
+.slider-inner .slide__button {
+  display: inline-block;
+  text-align: center;
+  padding: 20px 60px;
+  text-transform: uppercase;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 10px solid white;
+  position: absolute;
+  top: 70%;
+  left: 45%;
+  -webkit-transition: color 0.2s linear, border 0.2s linear;
+  transition: color 0.2s linear, border 0.2s linear;
+}
+
+.slider-inner .slide__button:hover {
+  color: #f39422;
+  border-color: #f39422;
+}
+
+.slider__navigation {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.slider__arrow {
+  display: inline-block;
+  background-color: transparent;
+  border: 5px solid white;
+  padding: 20px 40px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.slider__arrow--disabled {
+  opacity: 0.5;
+}
+
+.slider .slider-inner .slide--active .slide__image-wrapper {
+  -webkit-animation: showImage 0.5s ease-in-out both;
+          animation: showImage 0.5s ease-in-out both;
+}
+
+.slider .slider-inner .slide--active .slide__title {
+  -webkit-animation: slideIn 0.3s ease-in-out both;
+          animation: slideIn 0.3s ease-in-out both;
+}
+
+.slider .slider-inner .slide--active .slide__title span {
+  -webkit-animation: slideIn 0.3s ease-in-out both;
+          animation: slideIn 0.3s ease-in-out both;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+
+.slider .slider-inner .slide--active .slide__excerpt {
+  -webkit-animation: slideIn 0.4s ease-in-out both;
+          animation: slideIn 0.4s ease-in-out both;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+.slider .slider-inner .slide--active .slide__button {
+  -webkit-animation: slideIn 0.5s ease-in-out both;
+          animation: slideIn 0.5s ease-in-out both;
+}
+
+@-webkit-keyframes slideIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes showImage {
+  to {
+    width: 500px;
+  }
+}
+
+@keyframes showImage {
+  to {
+    width: 500px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
