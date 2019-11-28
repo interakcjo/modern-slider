@@ -1,6 +1,8 @@
 const slides = [...document.querySelectorAll(".slide")];
 const arrows = [...document.querySelectorAll(".slider__arrow")];
 
+console.log(slides.length);
+
 const activeClass = "slide--active";
 
 arrows.forEach(arrow => {
